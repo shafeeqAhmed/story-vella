@@ -1,0 +1,391 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,400;1,200&family=Poppins:wght@200;400;500&display=swap");
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    font-family: "Fira Sans", sans-serif;
+}
+
+.col_1 {
+    padding-top: 100px;
+}
+
+button {
+    font-family: "Fira Sans", sans-serif;
+}
+
+.site_header {
+    padding: 20px 0px;
+    position: absolute;
+    width: 100%;
+}
+
+.site_header .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.site_header .header .site_logo h1 {
+    color: black;
+    font-weight: bold;
+
+}
+
+.site_header .header .site_nav ul {
+    display: flex;
+    gap: 20px;
+    background-color: #fff;
+    border: 2px solid black;
+    padding: 4px 20px;
+}
+
+.site_header .header .site_nav ul li {
+    list-style: none;
+}
+
+.site_header .header .site_nav ul li a {
+    text-decoration: none;
+    color: #000;
+    z-index: 999;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.site_header .header .site_btn {
+    color: #fff;
+    font-size: 25px;
+    cursor: pointer;
+    display: none;
+}
+
+.banner_sec {
+
+
+    /* background-image: url('custom/assets/img/bg.jpg'); */
+    background-image: url('http://127.0.0.1:8000/custom/assets/img/bg.jpg');
+    width: 100%;
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.banner_sec .banner_content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.banner_sec .banner_content h1 {
+    color: #fff;
+}
+
+.marketing_sec {
+    padding: 50px;
+}
+
+.marketing_sec #category {
+    width: 100%;
+    height: 40px;
+    border: 2px solid #000;
+    border-radius: 2px;
+}
+
+.marketing_sec #Location {
+    width: 100%;
+    margin-left: 100px;
+    height: 40px;
+    border: 2px solid #000;
+    border-radius: 2px;
+}
+
+.marketing_sec button {
+    margin-left: 70%;
+    margin-top: 3px;
+    width: 100px;
+    height: 30px;
+    background: #fff;
+    box-shadow: rgba(255, 255, 255, 0.35) 0px 5px 15px;
+}
+
+.marketing_sec button a {
+    color: #000;
+}
+
+.marketing_sec .card {
+    width: 100%;
+    height: 100%;
+    border: 2px solid #000;
+}
+
+.marketing_sec .card .left_img img {
+    width: 50%;
+}
+
+.marketing_sec .right_content {
+    position: absolute;
+    top: 0;
+    padding-left: 30%;
+    padding-top: 40px;
+}
+
+.marketing_sec .right_content p {
+    width: 100%;
+    padding-top: 20px;
+}
+
+.marketing_sec .right_content button {
+    margin-left: -1%;
+    margin-top: 20px;
+}
+
+.marketing_sec .right_content i {
+    padding-left: 40px;
+}
+
+.marketing_sec .right_content span {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.marketing_sec .right_content em {
+    font-style: normal;
+    font-size: 18px;
+}
+
+.main_container {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    min-height: 100vh;
+    border: 2px solid #000;
+}
+
+.main_container .container_1 {
+    width: 490px;
+    min-height: 550px;
+    border: 2px solid #000;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.main_container .container_1 .header {
+    margin-top: 70px;
+    padding-bottom: 30px;
+}
+
+.main_container .container_1 .header h1 {
+    font-size: 40px;
+    font-weight: 600;
+    font-family: "Fira Sans", sans-serif;
+}
+
+.main_container .main {
+    text-align: center;
+}
+
+.main_container .main input {
+    width: 300px;
+    height: 30px;
+    border: none;
+    border: 2px solid black;
+    box-sizing: border-box;
+    font-size: 15px;
+    color: #000;
+    font-weight: 400;
+    margin: 15px;
+    font-family: "Fira Sans", sans-serif;
+}
+
+.main_container .main span {
+    display: flex;
+    justify-content: center;
+    padding-left: 175px;
+}
+
+.main_container .main span a {
+    font-family: "Fira Sans", sans-serif;
+}
+
+.main_container .main button {
+    margin-top: 40px;
+    padding: 3px 35px;
+    background-color: #fff;
+    margin-left: 40%;
+}
+
+.main_container .main button a {
+    text-decoration: none;
+    color: #000;
+    font-size: 18px;
+    font-weight: 400;
+    font-family: "Fira Sans", sans-serif;
+}
+
+.main_container .main em {
+    font-style: normal;
+    display: flex;
+    text-align: right;
+    padding: 30px 324px;
+    font-size: 17px;
+    font-weight: 400;
+}
+
+.main_container .main em a {
+    font-size: 17px;
+    font-weight: 400;
+    font-family: "Fira Sans", sans-serif;
+}
+
+.main_container .main .register {
+    padding-left: 270px;
+    position: relative;
+}
+
+b {
+    display: flex;
+    padding-left: 72%;
+    padding-top: 20px;
+}
+
+b a {
+    font-family: "Fira Sans", sans-serif;
+    font-weight: 500;
+}
+
+.header_1 {
+    padding-top: 15px;
+}
+
+.header_1 .header_2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-between;
+}
+
+.header_1 .header_2 .logo h1 {
+    font-size: 40px;
+    font-weight: 600;
+    font-family: "Fira Sans", sans-serif;
+}
+
+.header_1 .header_2 .nav_2 ul {
+    display: flex;
+    gap: 20px;
+    background-color: #fff;
+    border: 2px solid black;
+    padding: 4px 20px;
+}
+
+.header_1 .header_2 .nav_2 ul li {
+    list-style: none;
+}
+
+.header_1 .header_2 .nav_2 ul li a {
+    color: #000;
+    text-decoration: none;
+    font-family: "Fira Sans", sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.stories_sec {
+    margin-top: 70px;
+}
+
+.stories_sec button {
+    padding: 5px 50px;
+    background: #fff;
+}
+
+.stories_sec button a {
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 400;
+    color: #000000;
+    font-family: "Fira Sans", sans-serif;
+}
+
+.stories_sec .font {
+    margin-left: 50px;
+    font-size: 18px;
+}
+
+.stories_sec .card_2 {
+    margin-top: 50px;
+}
+
+.stories_sec .card_2 .card_con .card_img {
+    height: 50%;
+    display: flex;
+}
+
+.stories_sec .card_2 .card_con .card_img img {
+    width: 100%;
+}
+
+.stories_sec h6 {
+    padding-top: 23.5px;
+    font-family: "Fira Sans", sans-serif;
+}
+
+.stories_sec b {
+    font-family: "Fira Sans", sans-serif;
+}
+
+.stories_sec .btn_1 {
+    margin-top: 12px;
+}
+
+.stories_sec button {
+    border: 2px solid #000;
+    font-family: "Fira Sans", sans-serif;
+}
+
+.stories_sec .content_3 {
+    padding-top: 50px;
+    font-family: "Fira Sans", sans-serif;
+}
+
+/*# sourceMappingURL=style.css.map */
+.select_option {
+    width: 61%;
+    padding: 3px;
+}
+
+.auth_left_action {
+    float: left;
+    margin-left: 19%;
+}
+
+.auth_right_action {
+    float: right;
+    margin-right: 19%;
+}
+
+@media screen and (max-width: 425px) {
+    .select_option {
+        width: 72%;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .select_option {
+        width: 81%;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .select_option {
+        width: 91%;
+    }
+}

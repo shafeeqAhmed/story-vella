@@ -1,0 +1,40 @@
+.site_header{
+    padding: 20px 0px;
+    position: absolute;
+    width: 100%;
+    .header{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .site_logo{
+            h1{
+                color: #fff;
+            }
+        }
+        .site_nav{
+            ul{
+                display: flex;
+                gap: 20px;
+                background-color: #fff;
+                border: 2px solid black;
+                padding:4px 20px;
+                li{
+                    list-style: none;
+                    a{
+                        text-decoration: none;
+                        color: #000;
+                        z-index: 999;
+                        font-size: 20px;
+                        font-weight: 400;
+                    }
+                }
+            }
+        }
+        .site_btn{
+            color: #fff;
+            font-size: 25px;
+            cursor: pointer;
+            display: none;
+        }
+    }
+}
