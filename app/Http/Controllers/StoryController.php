@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Story;
@@ -10,12 +11,25 @@ class StoryController extends Controller
     /**
      * Display a listing of the resource.
      */
+
     public function index()
     {
 
         $stories = Story::join('users as u','u.id','=','stories.user_id')
                     ->select('stories.*', 'u.name as author_name')->paginate(2);
-        return view('story.admin.stories', compact('stories'));
+        $categories = Category::select('id','name')->get();
+        return view('story.admin.stories', compact('stories', 'categories'));
+    }
+    public function home() {
+        $stories = Story::with('likes')->join('users as u','u.id','=','stories.user_id')
+        ->select('stories.*', 'u.name as author_name')->get();
+
+        $categories = Category::select('id','name')->get();
+        $locations = Story::select('location')->get();
+        return view('home', compact('stories','categories','locations'));
+
+    return view('home');
+
     }
 
     /**
@@ -23,7 +37,8 @@ class StoryController extends Controller
      */
     public function create()
     {
-        return view('story.admin.add-stories');
+        $categories = Category::select('id','name')->get();
+        return view('story.admin.add-stories',compact('categories'));
     }
 
     /**
@@ -66,7 +81,10 @@ class StoryController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $story = Story::find($id);
+        $categories = Category::select('id','name')->get();
+
+        return view('story.admin.add-stories',compact('story','categories'));
     }
 
     /**
@@ -74,7 +92,7 @@ class StoryController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        dd($request->all(), $id);
     }
 
     /**
@@ -84,4 +102,16 @@ class StoryController extends Controller
     {
         //
     }
+    public function updateStoryStatus(Request $request){
+        $data['is_publishe'] = $request->has('is_publishe') ? 1 : 0;
+        Story::where('id',$request->story_id)->update($data);
+        return back()->with('success','Story has been updated successfully!');
+    }
+    public function deleteStory(Request $request){
+
+        Story::where('id',$request->story_id)->delete();
+        return back()->with('success','Story has been Deleted successfully!');
+    }
+
+
 }

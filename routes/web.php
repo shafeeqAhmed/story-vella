@@ -15,9 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/', [StoryController::class, 'home'])->name('home');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -34,7 +34,11 @@ Route::middleware('auth')->group(function () {
     //stories
     Route::get('/admin-stories', [StoryController::class, 'index'])->name('admin.stories');
     Route::get('/stories', [StoryController::class, 'create'])->name('stories.create');
+    Route::get('/stories/{id}', [StoryController::class, 'edit'])->name('stories.edit');
+    Route::put('/stories/{id}', [StoryController::class, 'update'])->name('stories.update');
     Route::post('/stories', [StoryController::class, 'store'])->name('stories.store');
+    Route::post('/update-story-status', [StoryController::class, 'updateStoryStatus'])->name('stories.update.status');
+    Route::post('/delete-story', [StoryController::class, 'deleteStory'])->name('stories.delete');
 
 });
 

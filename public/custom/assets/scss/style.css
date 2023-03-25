@@ -380,6 +380,22 @@ b a {
 .btn_remove_radius {
     border-radius: 0px !important;
 }
+.story_upload_preview_image{
+    height: 250px;
+    width: 300px;
+}
+.story_list{
+    height: 100%;
+    border: solid 2px black;
+    border-radius: 10px;
+}
+.fixed-height-paragraph {
+    height: 170px;
+    overflow-y: scroll;
+  }
+
+
+
 @media screen and (max-width: 425px) {
     .select_option {
         width: 72%;

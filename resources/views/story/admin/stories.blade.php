@@ -20,12 +20,16 @@
         </div>
     </div>
     <div class="row">
+        @include('messages.flash-message')
         <table class="table table-bordered">
             <thead>
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Image</th>
                     <th scope="col">Title</th>
+                    @if (Auth::user()->hasRole('admin'))
+                        <th scope="col">Author</th>
+                    @endif
                     <th scope="col">Edit</th>
                     <th scope="col">Publish</th>
                     <th scope="col">Delete</th>
@@ -43,14 +47,40 @@
                         <td>
                             {{ $story->title }}
                         </td>
-                        <td>@mdo</td>
+                        @if (Auth::user()->hasRole('admin'))
                         <td>
-                            {{ $story->is_publishe == 1 ? 'Yes' : 'No' }}
+                            {{ $story->author_name }}
+                        </td>
+                        @endif
+                        <td>
+                            <a href="{{ route('stories.edit',['id'=> $story->id])}}">
+                                Edit
+                            </a>
+                        </td>
+                        <td class="d-flex justify-content-center">
+                            <form method="post" action="{{ route('stories.update.status') }}">
+                                @csrf
+                                <input type="hidden" name="story_id" value="{{ $story->id }}">
+                                @if ($story->is_publishe)
+                                    <input class="form-check-input" type="checkbox" checked name="is_publishe"
+                                        onChange="this.form.submit()">
+                                @else
+                                    <input class="form-check-input" type="checkbox" name="is_publishe"
+                                        onChange="this.form.submit()">
+                                @endif
+                            </form>
+
                         </td>
                         <td>
-                            <a href="#">
-                                Delete
-                            </a>
+                            <form method="post" action="{{ route('stories.delete') }}">
+                                @csrf
+                                <input type="hidden" name="story_id" value="{{ $story->id }}">
+                                <div class="col d-flex justify-content-center">
+                                    <button type="submit" class="btn btn-outline-secondary bt-sm mb-2 btn_remove_radius"
+                                        >Delete</button>
+
+                                </div>
+                            </form>
                         </td>
                     </tr>
                 @endforeach
@@ -59,21 +89,13 @@
         {{-- {{ $stories->next_page_url}} --}}
         <div class="row">
             <div class=" d-flex justify-content-end">
-                <nav aria-label="Page navigation example">
-                    <ul class="pagination">
-                      <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                      <li class="page-item"><a class="page-link" href="#">1</a></li>
-                      <li class="page-item"><a class="page-link" href="#">2</a></li>
-                      <li class="page-item"><a class="page-link" href="#">3</a></li>
-                      <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                    </ul>
-                  </nav>
+                <div class="pagination">
+                    {{ $stories->links('vendor.pagination.bootstrap-5') }}
+                </div>
             </div>
         </div>
 
-        <div class="pagination">
-            {{ $stories->links('vendor.pagination.bootstrap-4') }}
-        </div>
+
 
     </div>
 
