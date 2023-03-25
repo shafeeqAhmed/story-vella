@@ -5,6 +5,7 @@
     margin: 0;
 }
 
+
 body {
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -22,7 +23,7 @@ button {
 
 .site_header {
     padding: 20px 0px;
-    position: absolute;
+    /* position: absolute; */
     width: 100%;
 }
 
@@ -372,6 +373,13 @@ b a {
     margin-right: 19%;
 }
 
+.main_heading_nav{
+    text-decoration: none;
+    color: black;
+}
+.btn_remove_radius {
+    border-radius: 0px !important;
+}
 @media screen and (max-width: 425px) {
     .select_option {
         width: 72%;

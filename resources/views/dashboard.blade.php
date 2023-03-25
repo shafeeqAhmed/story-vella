@@ -1,5 +1,5 @@
-<x-home-layout>
+<x-dashboard-layout>
 <div class="dashboar">
 
 </div>
-</x-home-layout>
+</x-dashboard-layout>

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\StoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,10 +23,19 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+    Route::get('/logout', [ProfileController::class, 'logout'])->name('profile.logout');
+
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    //stories
+    Route::get('/admin-stories', [StoryController::class, 'index'])->name('admin.stories');
+    Route::get('/stories', [StoryController::class, 'create'])->name('stories.create');
+    Route::post('/stories', [StoryController::class, 'store'])->name('stories.store');
+
 });
 
 require __DIR__.'/auth.php';
