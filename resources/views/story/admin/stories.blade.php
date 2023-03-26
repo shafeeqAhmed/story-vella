@@ -27,6 +27,7 @@
                     <th scope="col">#</th>
                     <th scope="col">Image</th>
                     <th scope="col">Title</th>
+                    <th scope="col">Total Likes</th>
                     @if (Auth::user()->hasRole('admin'))
                         <th scope="col">Author</th>
                     @endif
@@ -46,6 +47,9 @@
                         </td>
                         <td>
                             {{ $story->title }}
+                        </td>
+                        <td>
+                            {{ totalLikes($story->id) }}
                         </td>
                         @if (Auth::user()->hasRole('admin'))
                         <td>

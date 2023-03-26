@@ -25,6 +25,7 @@
                   @if(isset($story))
                   @method('PUT')
                   @endif
+
                 @csrf
                 <div class="mb-3">
                     <label for="title" class="form-label">Title</label>
@@ -63,7 +64,7 @@
 
                 <div class="mb-3">
                     <label for="storyImage" class="form-label">Story Image</label>
-                    <input class="form-control" type="file" id="storyImage" name="image" required>
+                    <input class="form-control" type="file" id="storyImage" name="image"  {{ empty($story->image) ? 'required' : '' }}>
                     @if(isset($story))
                     <img src="{{ $story->image }}"  class="mt-2 mb-1 story_upload_preview_image">
                     @endif

@@ -18,19 +18,6 @@
                             dashboard
                         </a>
                     </li>
-                    <li><a href="{{ route('admin.stories')}}">stories</a></li>
-                        <li>
-                            <form method="POST" action="{{ route('logout') }}">
-                                @csrf
-
-                                <x-responsive-nav-link :href="route('logout')"
-                                        onclick="event.preventDefault();
-                                                    this.closest('form').submit();">
-                                    {{ __('logout') }}
-                                </x-responsive-nav-link>
-                            </form>
-
-                        </li>
                         <li>
                             <a href="{{route('profile.edit') }}">
                                 {{ Auth::user()->name }}
@@ -42,6 +29,19 @@
                                 (Writer)
                                 @endif
                             </a>
+                        </li>
+
+                        <li>
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+
+                                <x-responsive-nav-link :href="route('logout')"
+                                        onclick="event.preventDefault();
+                                                    this.closest('form').submit();">
+                                    {{ __('logout') }}
+                                </x-responsive-nav-link>
+                            </form>
+
                         </li>
                     @else
                         <li><a href="{{ route('login') }}">Login</a></li>

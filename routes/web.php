@@ -17,24 +17,19 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [StoryController::class, 'home'])->name('home');
-
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-    Route::get('/logout', [ProfileController::class, 'logout'])->name('profile.logout');
+Route::get('/logout', [ProfileController::class, 'logout'])->name('profile.logout');
 
 
 Route::middleware('auth')->group(function () {
+    Route::get('/dashboard', [ProfileController::class, 'dashboard'])->name('dashboard');
+    Route::get('/users', [ProfileController::class, 'users'])->name('admin.users');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     //stories
-    Route::get('/admin-stories', [StoryController::class, 'index'])->name('admin.stories');
+    Route::get('/stories-list', [StoryController::class, 'index'])->name('stories.list');
     Route::get('/stories', [StoryController::class, 'create'])->name('stories.create');
-    Route::get('/stories/{id}/show', [StoryController::class, 'show'])->name('stories.show');
     Route::get('/stories/{id}', [StoryController::class, 'edit'])->name('stories.edit');
     Route::put('/stories/{id}', [StoryController::class, 'update'])->name('stories.update');
     Route::post('/stories', [StoryController::class, 'store'])->name('stories.store');
@@ -44,5 +39,6 @@ Route::middleware('auth')->group(function () {
 
 
 });
+Route::get('/stories/{id}/show', [StoryController::class, 'show'])->name('stories.show');
 
 require __DIR__.'/auth.php';

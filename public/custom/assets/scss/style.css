@@ -72,7 +72,7 @@ button {
     /* background-image: url('custom/assets/img/bg.jpg'); */
     background-image: url('http://127.0.0.1:8000/custom/assets/img/bg.jpg');
     width: 100%;
-    height: 100vh;
+    height: 50vh;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

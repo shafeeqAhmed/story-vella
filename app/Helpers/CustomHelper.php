@@ -8,3 +8,10 @@ if (!function_exists('isLiked')) {
        return Like::where('story_id',$storyId)->where('user_id', Auth::id())->exists();
     }
 }
+
+if (!function_exists('totalLikes')) {
+    function totalLikes($storyId)
+    {
+       return Like::where('story_id',$storyId)->count();
+    }
+}
