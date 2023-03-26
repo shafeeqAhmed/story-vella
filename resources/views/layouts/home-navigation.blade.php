@@ -3,16 +3,22 @@
         <div class="header">
             <div class="site_logo">
                 <h1>
-                    <a class="main_heading_nav" href="{{url('/dashboard')}}">
+                    <a class="main_heading_nav" href="{{route('home')}}">
                         Story Vella
                     </a>
                 </h1>
             </div>
             <div class="site_nav">
                 <ul>
-                    <li><a href="{{ route('admin.stories')}}">stories</a></li>
+
                     @if (Auth::check())
 
+                    <li>
+                        <a href="{{ route('dashboard') }}">
+                            dashboard
+                        </a>
+                    </li>
+                    <li><a href="{{ route('admin.stories')}}">stories</a></li>
                         <li>
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
